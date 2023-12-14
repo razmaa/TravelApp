@@ -10,15 +10,17 @@ import SwiftUI
 struct MainScreenView: View {
     @ObservedObject var viewModel = MainScreenViewModel()
     @State private var showingAlert = false
-    
+    @State var navigationPath = NavigationPath()
+
     var body: some View {
-        NavigationView {
+        NavigationStack(path: $navigationPath ) {
             List(viewModel.destinations) { destination in
-                NavigationLink(destination: DestinationDetailScreenView(destination: destination)) {
+                NavigationLink(destination: DestinationDetailScreenView(destination: destination, navigationPath: $navigationPath)) {
                     Text(destination.name)
                 }
+                .padding()
             }
-            .navigationBarTitle("Travel Destinations")
+            .navigationBarTitle("Travel Destinations", displayMode: .inline)
             .navigationBarItems(trailing: Button(action: {
                 showingAlert = true
             }) {

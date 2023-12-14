@@ -10,9 +10,9 @@ import SwiftUI
 
 class MainScreenViewModel: ObservableObject {
     @Published var destinations: [Destination] = [
-    Destination(name: "Tbilisi", image: Image(systemName: "apple.logo"), transport: ["car", "bus", "Metro"], mustSee: ["Old Tbilisi", "Sameba"], hotels: ["hotel1", "hotel2"]),
-    Destination(name: "Kutaisi", image: Image(systemName: "apple.logo"), transport: ["car", "bus", "Metro"], mustSee: ["Old Tbilisi", "Sameba"], hotels: ["hotel1", "hotel2"]),
-    Destination(name: "Bali", image: Image(systemName: "apple.logo"), transport: ["car", "bus", "Metro"], mustSee: ["Old Tbilisi", "Sameba"], hotels: ["hotel1", "hotel2"]),
+    Destination(name: "Tbilisi", image: Image("tbilisi"), transport: ["car", "bus", "Metro"], mustSee: ["Old Tbilisi", "Sameba"], hotels: ["hotel1", "hotel2"]),
+    Destination(name: "Kutaisi", image: Image("kutaisi"), transport: ["car", "bus", "Metro"], mustSee: ["Old Tbilisi", "Sameba"], hotels: ["hotel1", "hotel2"]),
+    Destination(name: "Bali", image: Image("bali"), transport: ["car", "bus", "Metro"], mustSee: ["Old Tbilisi", "Sameba"], hotels: ["hotel1", "hotel2"]),
 
     ]
     

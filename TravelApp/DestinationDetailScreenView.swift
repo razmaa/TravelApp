@@ -10,51 +10,41 @@ import SwiftUI
 struct DestinationDetailScreenView: View {
     
     let destination: Destination
-    @State var navigationPath = NavigationPath()
+    @Binding var navigationPath: NavigationPath
     
     var body: some View {
         NavigationStack(path: $navigationPath){
             VStack {
                 Text("General information about \(destination.name)")
+                    .bold()
+                    .padding()
                 
                 destination.image
                     .resizable()
-                    .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                    .frame(width: 350, height: 250)
                     .aspectRatio(contentMode: .fit)
                 
-                Button("Transport") {
-                    navigationPath.append("Transport")
+                NavigationLink("Transport") {
+                    TransportView(navigationPath: $navigationPath, destination: destination)
                 }
                 
-                Button("Must See") {
-                    navigationPath.append("Must see")
+                NavigationLink("Must see") {
+                    MustSeeView(navigationPath: $navigationPath, destination: destination)
                 }
                 
-                Button("Hotels"){
-                    navigationPath.append("Hotels")
+                NavigationLink("Hotels") {
+                    HotelsView(navigationPath: $navigationPath, destination: destination)
                 }
                 
             }
+            .navigationTitle(destination.name)
         }
-        .navigationBarTitle(destination.name)
-        //TODO: აქ რაღაცას ვერ ვაკეთებ სწორად
-        .navigationDestination(for: String.self) { viewName in
-            switch viewName {
-            case "Transport":
-                TransportView(navigationPath: $navigationPath, destination: destination)
-            case "Must see":
-                MustSeeView(navigationPath: $navigationPath, destination: destination)
-            case "Hotels":
-                HotelsView(navigationPath: $navigationPath, destination: destination)
-            default:
-                EmptyView()
-            }
-        }
+        .padding()
     }
 }
 
 #Preview {
-    DestinationDetailScreenView(destination:     Destination(name: "Tbilisi", image: Image(systemName: "apple.logo"), transport: ["car", "bus", "Metro"], mustSee: ["Old Tbilisi", "Sameba"], hotels: ["hotel1", "hotel2"])
+    DestinationDetailScreenView(destination:     Destination(name: "Tbilisi", image: Image("tbilisi"), transport: ["car", "bus", "Metro"], mustSee: ["Old Tbilisi", "Sameba"], hotels: ["hotel1", "hotel2"]), navigationPath: .constant(NavigationPath())
     )
 }
 
