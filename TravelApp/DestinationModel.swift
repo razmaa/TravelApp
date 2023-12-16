@@ -8,10 +8,10 @@
 import Foundation
 import SwiftUI
 
-struct Destination: Identifiable {
+struct Destination: Identifiable, Hashable {
     var id = UUID()
     var name: String
-    var image: Image
+    var image: String
     var transport: [String]
     var mustSee: [String]
     var hotels: [String]

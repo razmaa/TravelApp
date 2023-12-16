@@ -26,6 +26,6 @@ struct MustSeeView: View {
 }
 
 #Preview {
-    MustSeeView(navigationPath: .constant(NavigationPath()), destination:     Destination(name: "Tbilisi", image: Image(systemName: "apple.logo"), transport: ["car", "bus", "Metro"], mustSee: ["Old Tbilisi", "Sameba"], hotels: ["hotel1", "hotel2"])
+    MustSeeView(navigationPath: .constant(NavigationPath()), destination:     Destination(name: "Tbilisi", image: "tbilisi", transport: ["car", "bus", "Metro"], mustSee: ["Old Tbilisi", "Sameba"], hotels: ["hotel1", "hotel2"])
 )
 }

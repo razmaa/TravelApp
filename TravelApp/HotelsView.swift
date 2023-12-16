@@ -26,6 +26,6 @@ struct HotelsView: View {
 }
 
 #Preview {
-    HotelsView(navigationPath: .constant(NavigationPath()), destination:     Destination(name: "Tbilisi", image: Image(systemName: "apple.logo"), transport: ["car", "bus", "Metro"], mustSee: ["Old Tbilisi", "Sameba"], hotels: ["hotel1", "hotel2"])
+    HotelsView(navigationPath: .constant(NavigationPath()), destination:     Destination(name: "Tbilisi", image: "tbilisi", transport: ["car", "bus", "Metro"], mustSee: ["Old Tbilisi", "Sameba"], hotels: ["hotel1", "hotel2"])
 )
 }
